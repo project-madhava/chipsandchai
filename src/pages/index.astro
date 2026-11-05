@@ -9,9 +9,9 @@ const events = (await getCollection('events'))
 
 const next = events.find((event) => isUpcoming(event.data.date));
 
-const writing = (await getCollection('writing'))
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 3);
+// const writing = (await getCollection('writing'))
+//   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+//   .slice(0, 3);
 
 const communities = [
   { name: 'WhatsApp', href: '/communities/#whatsapp' },
@@ -21,7 +21,7 @@ const communities = [
 ---
 <Base title="Chips and Chai">
   <h1>Computer architecture and chip design, in one room.</h1>
-  <p class="lede">Announcements for readings, talks, and office hours in Ahmedabad and Gandhinagar. Essays from the group and from guests.</p>
+  <p class="lede">Announcements for readings, talks, and office hours in Ahmedabad and Gandhinagar.</p>
   {next && (
     <a class="next" href={`/events/${next.id}/`}>
       <strong>Next: {next.data.title}</strong>
@@ -41,6 +41,7 @@ const communities = [
       ))}
     </ul>
   </section>
+  <!--
   <section aria-label="Writing">
     <h2>Writing</h2>
     <ul class="rows">
@@ -54,6 +55,7 @@ const communities = [
       ))}
     </ul>
   </section>
+  -->
   <section aria-label="Communities">
     <h2>Communities</h2>
     <div class="communities">
