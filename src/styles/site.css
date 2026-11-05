@@ -35,6 +35,13 @@ a { color: inherit; }
   border-bottom: 1px solid var(--line);
 }
 
+.logo {
+  display: block;
+  width: min(280px, 72%);
+  height: auto;
+  margin: 32px 0 0;
+}
+
 .mark {
   margin: 0;
   font-size: 15px;
