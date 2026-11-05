@@ -13,4 +13,4 @@ One paper, read ahead. We will walk through a small multicore example and stop w
 
 Come even if you only finished half. The first twenty minutes are a shared recap, then questions.
 
-The meeting link goes out on Discord the morning of the session.
+The meeting link goes out on the WhatsApp community the morning of the session.

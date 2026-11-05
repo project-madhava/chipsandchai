@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import { whatsappCommunity } from '../lib/communities';
 import { isUpcoming, onFrontPage, shortDate } from '../lib/dates';
 
 const events = (await getCollection('events'))
@@ -14,9 +15,8 @@ const next = events.find((event) => isUpcoming(event.data.date));
 //   .slice(0, 3);
 
 const communities = [
-  { name: 'WhatsApp', href: '/communities/#whatsapp' },
+  { name: 'WhatsApp', href: whatsappCommunity },
   { name: 'Discord', href: '/communities/#discord' },
-  { name: 'Slack', href: '/communities/#slack' },
 ];
 ---
 <Base title="Chips and Chai">
