@@ -17,7 +17,7 @@ const { Content } = await render(post);
 <Base title={post.data.title} current="writing">
   <a class="crumb" href="/writing/">Writing</a>
   <h1>{post.data.title}</h1>
-  <p class="meta">{longDate(post.data.date)} · {post.data.author}</p>
+  <p class="meta">{longDate(post.data.date)} · {post.data.author}{post.data.placeholder ? ' · Placeholder' : ''}</p>
   <div class="prose">
     <Content />
   </div>

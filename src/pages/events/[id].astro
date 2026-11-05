@@ -17,7 +17,7 @@ const { Content } = await render(event);
 <Base title={event.data.title} current="events">
   <a class="crumb" href="/events/">Events</a>
   <h1>{event.data.title}</h1>
-  <p class="meta">{longDate(event.data.date)} · {event.data.time} · {event.data.place}</p>
+  <p class="meta">{longDate(event.data.date)} · {event.data.time} · {event.data.place}{event.data.placeholder ? ' · Placeholder' : ''}</p>
   <div class="prose">
     <Content />
   </div>

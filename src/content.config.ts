@@ -10,6 +10,7 @@ const events = defineCollection({
     place: z.string(),
     host: z.string(),
     readings: z.array(z.string()).default([]),
+    placeholder: z.boolean().default(false),
   }),
 });
 
@@ -19,6 +20,7 @@ const writing = defineCollection({
     title: z.string(),
     date: z.coerce.date(),
     author: z.string(),
+    placeholder: z.boolean().default(false),
   }),
 });
 

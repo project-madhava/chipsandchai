@@ -14,7 +14,7 @@ const posts = (await getCollection('writing'))
       <li>
         <a href={`/writing/${post.id}/`}>
           <span class="when">{shortDate(post.data.date)}</span>
-          <span class="title">{post.data.title} <span class="by">· {post.data.author}</span></span>
+          <span class="title">{post.data.title} <span class="by">· {post.data.author}{post.data.placeholder ? ' · Placeholder' : ''}</span></span>
         </a>
       </li>
     ))}

@@ -24,7 +24,7 @@ const communities = [
   <p class="lede">Announcements for readings, talks, and office hours in Ahmedabad and Gandhinagar.</p>
   {next && (
     <a class="next" href={`/events/${next.id}/`}>
-      <strong>Next: {next.data.title}</strong>
+      <strong>Next: {next.data.title}{next.data.placeholder ? ' · Placeholder' : ''}</strong>
       <span>{shortDate(next.data.date)} · {next.data.time} · {next.data.place}</span>
     </a>
   )}
@@ -35,7 +35,7 @@ const communities = [
         <li>
           <a href={`/events/${event.id}/`}>
             <span class="when">{shortDate(event.data.date)}</span>
-            <span class="title">{event.data.title}</span>
+            <span class="title">{event.data.title}{event.data.placeholder ? <span class="by"> · Placeholder</span> : null}</span>
           </a>
         </li>
       ))}
@@ -49,7 +49,7 @@ const communities = [
         <li>
           <a href={`/writing/${post.id}/`}>
             <span class="when">{shortDate(post.data.date)}</span>
-            <span class="title">{post.data.title} <span class="by">· {post.data.author}</span></span>
+            <span class="title">{post.data.title} <span class="by">· {post.data.author}{post.data.placeholder ? ' · Placeholder' : ''}</span></span>
           </a>
         </li>
       ))}

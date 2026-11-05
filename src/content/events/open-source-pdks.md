@@ -1,6 +1,7 @@
 ---
 title: "Guest talk: open-source PDKs"
-date: 2026-12-03
+date: 2027-01-07
+placeholder: true
 time: "6:30–8:00pm"
 place: "Ahmedabad"
 host: "Guest"

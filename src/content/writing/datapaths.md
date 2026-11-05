@@ -1,6 +1,7 @@
 ---
 title: "Why we still draw datapaths by hand"
-date: 2026-11-02
+date: 2026-12-16
+placeholder: true
 author: "A. Rao"
 ---
 

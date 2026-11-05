@@ -1,6 +1,7 @@
 ---
 title: "Chip-design office hours"
-date: 2026-11-20
+date: 2026-12-20
+placeholder: true
 time: "5:00–6:30pm"
 place: "Gandhinagar"
 host: "Chips and Chai"

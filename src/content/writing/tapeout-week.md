@@ -1,6 +1,7 @@
 ---
 title: "A guest note on tapeout week"
-date: 2026-10-28
+date: 2026-12-18
+placeholder: true
 author: "L. Mehta"
 ---
 
