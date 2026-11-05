@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { shortDate } from '../../lib/dates';
+
+const events = (await getCollection('events'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+<Base title="Events" current="events">
+  <h1>Events</h1>
+  <p class="lede">Gatherings in Ahmedabad and Gandhinagar. The home page keeps the next month. Older ones stay here.</p>
+  <ul class="rows">
+    {events.map((event) => (
+      <li>
+        <a href={`/events/${event.id}/`}>
+          <span class="when">{shortDate(event.data.date)}</span>
+          <span class="title">{event.data.title}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</Base>

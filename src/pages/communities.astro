@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+
+const communities = [
+  { id: 'whatsapp', name: 'WhatsApp', detail: 'Add the group link here when it exists.' },
+  { id: 'discord', name: 'Discord', detail: 'Add the server link here when it exists.' },
+  { id: 'slack', name: 'Slack', detail: 'Add the workspace link here when it exists.' },
+];
+---
+<Base title="Communities" current="communities">
+  <h1>Communities</h1>
+  <p class="lede">Places to keep talking between gatherings in Ahmedabad and Gandhinagar.</p>
+  <ul class="lines">
+    {communities.map((item) => (
+      <li id={item.id}>
+        <strong>{item.name}</strong>
+        <span class="by"> · {item.detail}</span>
+      </li>
+    ))}
+  </ul>
+</Base>

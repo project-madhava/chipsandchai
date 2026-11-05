@@ -1,0 +1,63 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { isUpcoming, onFrontPage, shortDate } from '../lib/dates';
+
+const events = (await getCollection('events'))
+  .filter((event) => onFrontPage(event.data.date))
+  .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf());
+
+const next = events.find((event) => isUpcoming(event.data.date));
+
+const writing = (await getCollection('writing'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+
+const communities = [
+  { name: 'WhatsApp', href: '/communities/#whatsapp' },
+  { name: 'Discord', href: '/communities/#discord' },
+  { name: 'Slack', href: '/communities/#slack' },
+];
+---
+<Base title="Chips and Chai">
+  <h1>Computer architecture and chip design, in one room.</h1>
+  <p class="lede">Announcements for readings, talks, and office hours in Ahmedabad and Gandhinagar. Essays from the group and from guests.</p>
+  {next && (
+    <a class="next" href={`/events/${next.id}/`}>
+      <strong>Next: {next.data.title}</strong>
+      <span>{shortDate(next.data.date)} · {next.data.time} · {next.data.place}</span>
+    </a>
+  )}
+  <section aria-label="Events">
+    <h2>Events</h2>
+    <ul class="rows">
+      {events.map((event) => (
+        <li>
+          <a href={`/events/${event.id}/`}>
+            <span class="when">{shortDate(event.data.date)}</span>
+            <span class="title">{event.data.title}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+  <section aria-label="Writing">
+    <h2>Writing</h2>
+    <ul class="rows">
+      {writing.map((post) => (
+        <li>
+          <a href={`/writing/${post.id}/`}>
+            <span class="when">{shortDate(post.data.date)}</span>
+            <span class="title">{post.data.title} <span class="by">· {post.data.author}</span></span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+  <section aria-label="Communities">
+    <h2>Communities</h2>
+    <div class="communities">
+      {communities.map((item) => <a href={item.href}>{item.name}</a>)}
+    </div>
+  </section>
+</Base>
